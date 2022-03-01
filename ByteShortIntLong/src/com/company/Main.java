@@ -34,5 +34,24 @@ public class Main {
         System.out.println("Long Minimum Value = " + myMinLongValue);
         System.out.println("Long Maximum Value = " + myMaxLongValue);
 
+        int myTotal = (myMinIntValue / 2);
+
+        // Need to cast to using (byte) since it treats it as an int when dividing by 2
+        byte myNewByteValue = (byte) (myMinByteValue / 2);
+
+        // Primitive Types Challenge
+        // Create variables of byte, short, and int types
+        // Create a long and make = 50000 + (10 * sum(int+byte+short values))
+
+        byte challengeByte = 10;
+        short challengeShort = 20;
+        int challengeInt = 50;
+
+        long challengeLong = 50000L + (10L *
+                (challengeInt + challengeByte + challengeShort));
+
+        System.out.println(challengeLong);
+
+
     }
 }

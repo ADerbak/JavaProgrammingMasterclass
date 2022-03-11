@@ -18,12 +18,16 @@ public class Main {
 
         int myIntValue = 5/3;
         float myFloatValue = 5f/3f;
-        double myDoubleValue = 5d/3d;
+        double myDoubleValue = 5.00 / 3.00;
         System.out.println("MyIntValue= " + myIntValue);
         System.out.println("MyFloatValue= " + myFloatValue);
         System.out.println("MyDoubleValue= "+ myDoubleValue);
 
+        // Challenge - convert pounds to kilograms
 
+        double poundsToConvert = 200d;
+        double poundsToKilograms = poundsToConvert * 0.45359237d;
+        System.out.println(poundsToConvert + " Pounds converts to " +  poundsToKilograms + " Kilograms");
 
     }
 }

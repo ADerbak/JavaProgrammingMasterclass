@@ -50,5 +50,28 @@ public class Main {
         result -= 2; // 10 - 2 = 8
         System.out.println("10 - 2 = " + result);
 
+        boolean isAlien = false;
+        if (isAlien == false) { // Using curly braces allows you to do multi-line
+            System.out.println("It is not an alien!");
+            System.out.println("And I am scared of aliens");
+        }
+
+        // if - then code block:
+
+        // if (expression) {
+            // expression
+        // }
+
+        // Other boolean operators: ==, !=, >, <, >=, <=
+        int topScore = 80;
+        if (topScore < 100) {
+            System.out.println("You got the high score!");
+        }
+
+        // Add multiple conditions: && and ||
+        int secondTopScore = 81;
+        if (topScore > secondTopScore && topScore < 100) {
+            System.out.println("Greater than second top score and less than 100");
+        }
     }
 }

@@ -69,9 +69,39 @@ public class Main {
         }
 
         // Add multiple conditions: && and ||
-        int secondTopScore = 81;
-        if (topScore > secondTopScore && topScore < 100) {
+        // WARNING: "&" or "|" are bitwise operators and will work differently!
+        // Always use && or || for logical operators; bitwise operators are more advanced
+
+        int secondTopScore = 95;
+        if ((topScore > secondTopScore) && (topScore < 100)) {
             System.out.println("Greater than second top score and less than 100");
+        }
+
+        if ((topScore > 90) || (secondTopScore <= 90)) {
+            System.out.println("Either or both of the conditions are true");
+        }
+
+        int newValue = 50;
+        if (newValue == 50) { // tested the differences between = and ==
+            System.out.println("This is not an error");
+        }
+
+        boolean isCar = false;
+        if (isCar = true) { // assigning a boolean in the IF statement will update the assignment
+            System.out.println("This is not supposed to happen");
+        }
+
+        if (isCar) { // We can simplify by removing == test
+            System.out.println("This is a simple test");
+        }
+
+        // Using ternary operands
+
+        boolean wasCar = isCar ? true : false; // If first condition is true
+        // So, (isCar == True)?; If true, then wasCar is true, otherwise false.
+        // This is a shortcut for IF-THEN-ELSE
+        if (wasCar){
+            System.out.println("wasCar is true");
         }
     }
 }

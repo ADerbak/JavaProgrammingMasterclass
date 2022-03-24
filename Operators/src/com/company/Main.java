@@ -102,6 +102,39 @@ public class Main {
         // This is a shortcut for IF-THEN-ELSE
         if (wasCar){
             System.out.println("wasCar is true");
+
+        }
+
+        // Operator Challenge
+
+        // 1.Create a double with value of 20.00
+
+        double myFirstNumber = 20.00d;
+
+        // 2. Create a double with value of 80.00
+
+        double mySecondNumber = 80.00d;
+
+        // 3. Add both together, multiply by 100.00
+
+        double bothNumbersTimesHundred = (myFirstNumber + mySecondNumber) * 100.00d;
+
+        // 4. Use the remainder operator to get results of 3 and 40.00
+
+        double results = bothNumbersTimesHundred % 40.00d;
+
+        // 5. Create a boolean variable that is true if #4 is 0
+
+        boolean checkIfZero = (results == 0);
+
+        // 6. Output boolean variable
+
+        System.out.println(checkIfZero);
+
+        // 7. Write IF-THEN to output "Got some remainder" if step 5 is false.
+
+        if (checkIfZero == false) {
+            System.out.println("Got some remainder");
         }
     }
 }

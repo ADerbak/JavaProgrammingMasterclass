@@ -125,7 +125,7 @@ public class Main {
 
         // 5. Create a boolean variable that is true if #4 is 0
 
-        boolean checkIfZero = (results == 0);
+        boolean checkIfZero = (results == 0) ? true : false;
 
         // 6. Output boolean variable
 

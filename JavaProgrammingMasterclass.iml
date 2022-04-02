@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/FloatAndDouble_v2" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/HelloWorld/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/KeywordsAndExpressions_v2/out/production" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

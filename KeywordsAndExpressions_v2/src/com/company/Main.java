@@ -11,14 +11,11 @@ public class Main {
         highscore = calculateScore(true, 10000, 8, 200);
         System.out.println("Your final score was " + highscore);
 
-        String player1 = displayHighScore("Andrew", calculateHighScore(1500));
-        System.out.println(player1);
-        String player2 = displayHighScore("Becca", calculateHighScore(900));
-        System.out.println(player2);
-        String player3 = displayHighScore("Cathy", calculateHighScore(400));
-        System.out.println(player3);
-        String player4 = displayHighScore("Doug", calculateHighScore(50));
-        System.out.println(player4);
+        displayHighScore("Andrew", calculateHighScore(1500));
+        displayHighScore("Becca", calculateHighScore(900));
+        displayHighScore("Cathy", calculateHighScore(400));
+        displayHighScore("Doug", calculateHighScore(50));
+
     }
 
     public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
@@ -34,13 +31,12 @@ public class Main {
         return -1; // return -1 if gameOver is not true.
     }
 
-    public static String displayHighScore(String playerName, int position) {
+    public static void displayHighScore(String playerName, int position) {
 
-        String message =  playerName +
+        System.out.println(playerName +
                 " managed to get into position " +
                 position +
-                " on the high score table";
-        return message;
+                " on the high score table");
     }
 
     public static int calculateHighScore(int score) {

@@ -40,7 +40,7 @@ public class Main {
     }
 
     public static int calculateHighScore(int score) {
-        if (score > 1000){
+        if (score >= 1000){
             return 1;
         } else if (score >= 500) {
             return 2;

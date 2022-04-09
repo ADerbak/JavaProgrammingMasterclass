@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        double result = calcFeetAndInchesToCentimeters(69);
+        double result = calcFeetAndInchesToCentimeters(72);
         System.out.println(result);
     }
     public static double calcFeetAndInchesToCentimeters(int feet, int inches) {
@@ -13,7 +13,7 @@ public class Main {
     }
     public static double calcFeetAndInchesToCentimeters(int inches) {
         if ( inches >= 0) {
-            return calcFeetAndInchesToCentimeters(inches/12, inches &12);
+            return calcFeetAndInchesToCentimeters(inches/12, inches % 12);
         } else {
             return -1;
         }

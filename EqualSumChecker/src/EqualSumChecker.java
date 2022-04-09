@@ -4,6 +4,5 @@ public class EqualSumChecker {
             return true;
         }
         return false;
-
     }
 }

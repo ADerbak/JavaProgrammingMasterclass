@@ -1,7 +1,10 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class DecimalComparator {
-    public static boolean areEqualByThreeDecimalsPlaces{double num1, double num2){
-        num1 = (double)Math.round(num1 * 1000d) / 1000d;
-        num2 = (double)Math.round(num2 * 1000d) / 1000d;
+    public static boolean areEqualByThreeDecimalPlaces(double num1, double num2){
+        num1 = BigDecimal.valueOf(num1).setScale(3, RoundingMode.DOWN).doubleValue();
+        num2 = BigDecimal.valueOf(num2).setScale(3, RoundingMode.DOWN).doubleValue();
         if (num1 == num2) {
             return true;
         } else {

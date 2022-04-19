@@ -53,5 +53,8 @@ public class Main {
                 System.out.println("'" + newChar + "' was not found");
                 break;
         }
+
+        
+        }
     }
 }

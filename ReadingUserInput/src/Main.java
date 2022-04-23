@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter your year of birth: ");
-        int yearOfBirth = scanner.nextInt();
+        int yearOfBirth = scanner.nextInt(); // must have a blank nextLine after a nextInt
         scanner.nextLine(); //need to do next line to allow for multiple inputs
 
         System.out.println("Enter your name: ");

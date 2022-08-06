@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(sumDigits(1125));
+        System.out.println(sumDigits(125));
     }
 
     public static int sumDigits(int number){
@@ -10,28 +10,15 @@ public class Main {
         if (number < 10){
             return -1;
         } else {
-            while(number != 0){
-                int thousands = 0;
-                thousands = number / 1000;
-                total += thousands;
-                number -= thousands * 1000;
-
-                int hundreds = 0;
-                hundreds = number / 100;
-                total += hundreds;
-                number -= hundreds * 100;
-
-                int tens = 0;
-                tens = number / 10;
-                total += tens;
-                number -= tens * 10;
+            while(number != 0) {
+                int value = 0;
+                for (int i = 1000; i >= 1; i /= 10) {
+                    value = number / i;
+                    total += value;
+                    number -= value * i;
 
 
-                int ones = 0;
-                ones = number / 1;
-                total += ones;
-                number -= ones;
-
+                }
             }
 
         }

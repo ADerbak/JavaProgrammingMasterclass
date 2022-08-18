@@ -16,6 +16,18 @@ public class Main {
 //		You will want to create various code in the Main class to confirm your code is working.
 //		Add some println's in the two methods above as well.
 
+		
+		BankAccount customer1 = new BankAccount();
+		customer1.setAccountNumber(1);
+		customer1.setBalance(10000);
+		customer1.setCustomerName("Andrew");
+		customer1.setPhoneNumber("123-456-7890");
+		
+		System.out.println("Hello" + customer1.getCustomerName()+"!");
+		
+		customer1.deposit(500);
+		customer1.withdrawal(100000);
+		customer1.withdrawal(1000);
 	}
 
 }

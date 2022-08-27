@@ -28,6 +28,31 @@ public class Main {
 		customer1.deposit(500);
 		customer1.withdrawal(100000);
 		customer1.withdrawal(1000);
+	
+	
+	
+	// Create a new class VIPCustomer
+	// It should have 3 fields - name, credit limit, and email address
+	// create 3 constructors
+	// 1st constructor - empty, should call the constructor with default values
+	// 2nd constructor - should have 2 values it receives and default for 3rd
+	// 3rd constructor - save all fields
+	// create getters only for this
+	// test and confirm it works
+	
+	
+		VIPCustomer vipA = new VIPCustomer();
+		VIPCustomer vipB = new VIPCustomer("Andrew",250000,"this@email.com");
+		VIPCustomer vipC = new VIPCustomer("Douglas",5000);
+		
+		VIPCustomer[] vips = new VIPCustomer[3];
+		vips[0] = vipA;
+		vips[1] = vipB;
+		vips[2] = vipC;
+		
+		for (VIPCustomer cust : vips) {
+			System.out.println(cust.getName() +";"+ cust.getCreditLimit() + ";"+cust.getEmailAddress());
+		}
 	}
-
+	
 }

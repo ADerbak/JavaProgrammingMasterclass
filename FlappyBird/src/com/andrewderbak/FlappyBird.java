@@ -83,6 +83,12 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
         g.setColor(Color.RED);
         g.fillRect(bird.x, bird.y, bird.width, bird.height);
 
+
+        for (Rectangle column: columns){
+            paintColumns(g, column);
+        }
+
+
     }
 
     public static void main(String[] args) {
@@ -93,8 +99,14 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        int speed = 10;
 
         ticks++;
+
+        for (int i = 0; i < columns.size(); i++){
+            Rectangle column = columns.get(i);
+            column.x -= speed;
+        }
 
         if (ticks % 2 == 0 && yMotion < 15){
             yMotion+=2;

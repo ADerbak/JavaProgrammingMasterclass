@@ -12,6 +12,7 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
     public static FlappyBird flappyBird;
     public final int WIDTH = 800, HEIGHT = 800;
 
+    public boolean gameOver, started = true;
     public Renderer renderer;
     public Rectangle bird;
     public int ticks, yMotion;
@@ -88,6 +89,13 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
             paintColumns(g, column);
         }
 
+        if(gameOver) {
+            g.setColor(Color.white);
+            g.setFont(new Font("Arial", 1, 100));
+            if (gameOver) {
+                g.drawString("Game Over!", 100, HEIGHT / 2 - 50);
+            }
+        }
 
     }
 
@@ -103,16 +111,40 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
 
         ticks++;
 
-        for (int i = 0; i < columns.size(); i++){
-            Rectangle column = columns.get(i);
-            column.x -= speed;
+        if(started) {
+            for (int i = 0; i < columns.size(); i++) {
+                Rectangle column = columns.get(i);
+                column.x -= speed;
+            }
+
+            if (ticks % 2 == 0 && yMotion < 15) {
+                yMotion += 2;
+            }
+
+            for (int i = 0; i < columns.size(); i++) {
+                Rectangle column = columns.get(i);
+                if (column.x + column.width < 0) {
+                    columns.remove(column);
+                    if (column.y == 0) {
+                        addColumn(false);
+                    }
+                }
+            }
+
+
+            bird.y += yMotion;
+
+            for (Rectangle column : columns) {
+                if (column.intersects(bird)) {
+                    gameOver = true;
+                }
+            }
+
+            if (bird.y > HEIGHT - 120 || bird.y < 0) {
+                gameOver = true;
+            }
         }
 
-        if (ticks % 2 == 0 && yMotion < 15){
-            yMotion+=2;
-        }
-
-        bird.y += yMotion;
         renderer.repaint();
     }
 

@@ -4,18 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class FlappyBird extends JInternalFrame implements ActionListener {
+public class FlappyBird extends JInternalFrame implements ActionListener, MouseListener {
 
     public static FlappyBird flappyBird;
     public final int WIDTH = 800, HEIGHT = 800;
 
-    public boolean gameOver, started = true;
+    public boolean gameOver, started;
     public Renderer renderer;
     public Rectangle bird;
-    public int ticks, yMotion;
+    public int ticks, yMotion, score;
     public ArrayList<Rectangle> columns;
     public Random rand;
 
@@ -31,16 +33,19 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
         jframe.setTitle("Andrew's Flappy Bird Demo");
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setSize(WIDTH,HEIGHT);
+        jframe.addMouseListener(this);
         jframe.setResizable(false);
         jframe.setVisible(true);
 
         bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
         columns = new ArrayList<Rectangle>();
 
+//        columns.clear();
         addColumn(true);
         addColumn(true);
         addColumn(true);
         addColumn(true);
+
 
 
         timer.start();
@@ -89,12 +94,16 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
             paintColumns(g, column);
         }
 
+        g.setColor(Color.white);
+        g.setFont(new Font("Arial", 1, 100));
+
+        if(!started){
+            g.drawString("Click to Start", 100, HEIGHT / 2 -50);
+        }
+
         if(gameOver) {
-            g.setColor(Color.white);
-            g.setFont(new Font("Arial", 1, 100));
-            if (gameOver) {
                 g.drawString("Game Over!", 100, HEIGHT / 2 - 50);
-            }
+
         }
 
     }
@@ -137,15 +146,70 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
             for (Rectangle column : columns) {
                 if (column.intersects(bird)) {
                     gameOver = true;
+                    bird.x = column.x - bird.width;
                 }
             }
 
             if (bird.y > HEIGHT - 120 || bird.y < 0) {
+
                 gameOver = true;
             }
+
+            if (gameOver) bird.y = HEIGHT - 120 - bird.height;
         }
 
         renderer.repaint();
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        jump();
+    }
+
+    private void jump() {
+        if(gameOver){
+
+            bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
+//            columns = new ArrayList<Rectangle>();
+
+            yMotion = 0;
+            score = 0;
+
+            columns.clear();
+            addColumn(true);
+            addColumn(true);
+            addColumn(true);
+            addColumn(true);
+
+
+            gameOver = false;
+        }
+        if(!started){
+            started = true;
+        } else if (!gameOver) {
+
+        } else {
+
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

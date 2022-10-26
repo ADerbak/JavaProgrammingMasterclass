@@ -2,14 +2,11 @@ package com.andrewderbak;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class FlappyBird extends JInternalFrame implements ActionListener, MouseListener {
+public class FlappyBird extends JInternalFrame implements ActionListener, MouseListener, KeyListener {
 
     public static FlappyBird flappyBird;
     public final int WIDTH = 800, HEIGHT = 800;
@@ -34,6 +31,7 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setSize(WIDTH,HEIGHT);
         jframe.addMouseListener(this);
+        jframe.addKeyListener(this);
         jframe.setResizable(false);
         jframe.setVisible(true);
 
@@ -219,5 +217,23 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+        {
+            jump();
+        }
     }
 }

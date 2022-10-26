@@ -106,6 +106,10 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
 
         }
 
+        if (!gameOver && started){
+            g.drawString(String.valueOf(score), WIDTH/2 - 25, 100);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -144,6 +148,11 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
             bird.y += yMotion;
 
             for (Rectangle column : columns) {
+                if(column.y == 0 &&
+                        bird.x + bird.width / 2 > column.x + column.width - 5 &&
+                        bird.x + bird.width / 2 < column.x + column.width + 5){
+                    score+=1;
+                }
                 if (column.intersects(bird)) {
                     gameOver = true;
                     bird.x = column.x - bird.width;
@@ -155,7 +164,7 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
                 gameOver = true;
             }
 
-            if (gameOver) bird.y = HEIGHT - 120 - bird.height;
+            if (bird.y + yMotion >= HEIGHT - 120) bird.y = HEIGHT - 120 - bird.height;
         }
 
         renderer.repaint();
@@ -167,15 +176,13 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
     }
 
     private void jump() {
-        if(gameOver){
+        if (gameOver) {
 
             bird = new Rectangle(WIDTH / 2 - 10, HEIGHT / 2 - 10, 20, 20);
-//            columns = new ArrayList<Rectangle>();
-
+            columns.clear();
             yMotion = 0;
             score = 0;
 
-            columns.clear();
             addColumn(true);
             addColumn(true);
             addColumn(true);
@@ -184,13 +191,14 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
 
             gameOver = false;
         }
-        if(!started){
+        if (!started) {
             started = true;
         } else if (!gameOver) {
-
-        } else {
-
+            if (yMotion > 0) yMotion = 0;
+            yMotion -= 10;
         }
+
+
     }
 
     @Override

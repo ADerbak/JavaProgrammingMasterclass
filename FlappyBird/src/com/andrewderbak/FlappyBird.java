@@ -153,7 +153,18 @@ public class FlappyBird extends JInternalFrame implements ActionListener, MouseL
                 }
                 if (column.intersects(bird)) {
                     gameOver = true;
-                    bird.x = column.x - bird.width;
+
+                    if(bird.x<  column.x){
+                        bird.x = column.x - bird.width;
+
+                    } else {
+                        if (column.y != 0) {
+                            bird.y = column.y - bird.height;
+                        } else if (bird.y< column.height) {
+                                bird.y = column.height;
+                        }
+                    }
+
                 }
             }
 

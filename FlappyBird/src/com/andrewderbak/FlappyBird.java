@@ -14,6 +14,7 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
 
     public Renderer renderer;
     public Rectangle bird;
+    public int ticks, yMotion;
     public ArrayList<Rectangle> columns;
     public Random rand;
 
@@ -91,6 +92,15 @@ public class FlappyBird extends JInternalFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
+        ticks++;
+
+        if (ticks % 2 == 0 && yMotion < 15){
+            yMotion+=2;
+        }
+
+        bird.y += yMotion;
         renderer.repaint();
     }
 

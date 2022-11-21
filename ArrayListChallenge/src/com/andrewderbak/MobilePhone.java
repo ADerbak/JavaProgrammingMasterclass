@@ -10,9 +10,7 @@ public class MobilePhone {
     public static void main(String[] args) {
 
         printHello();
-//        printMenu();
         int choice = 0;
-//        in.nextLine();
         while (choice != 5) {
             printMenu();
             choice = in.nextInt();
@@ -38,16 +36,16 @@ public class MobilePhone {
     public static void optionsMenu(int choice){
         switch(choice) {
             case 1:
-                Contacts.printContacts();
+                contacts.printContacts();
                 break;
             case 2:
-                Contacts.addNewContact();
+                contacts.addNewContact();
                 break;
             case 3:
-                Contacts.changeContact();
+                contacts.changeContact();
                 break;
             case 4:
-                Contacts.removeContact();
+                contacts.removeContact();
                 break;
             case 5:
                 System.out.println("Shutting down...");

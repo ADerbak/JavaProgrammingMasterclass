@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class MobilePhone {
 
-    static Scanner in = new Scanner(System.in);
-    static Contacts contacts = new Contacts();
+    private static Scanner in = new Scanner(System.in);
+    private static Contacts contacts = new Contacts();
 
     public static void main(String[] args) {
 
@@ -50,6 +50,7 @@ public class MobilePhone {
                 Contacts.removeContact();
                 break;
             case 5:
+                System.out.println("Shutting down...");
                 break;
 
             default:

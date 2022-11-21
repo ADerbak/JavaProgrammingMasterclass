@@ -4,14 +4,22 @@ import java.util.Scanner;
 
 public class MobilePhone {
 
-    Scanner in = new Scanner(System.in);
-    Contacts contacts = new Contacts();
+    static Scanner in = new Scanner(System.in);
+    static Contacts contacts = new Contacts();
 
     public static void main(String[] args) {
 
         printHello();
-        printMenu();
-        optionsMenu();
+//        printMenu();
+        int choice = 0;
+//        in.nextLine();
+        while (choice != 5) {
+            printMenu();
+            choice = in.nextInt();
+            in.nextLine();
+            optionsMenu(choice);
+
+        }
     }
 
     public static void printHello(){
@@ -23,18 +31,27 @@ public class MobilePhone {
         System.out.println("1. Print contacts");
         System.out.println("2. Add new contact");
         System.out.println("3. Update existing contact");
-        System.out.println("6. Remove contact");
+        System.out.println("4. Remove contact");
         System.out.println("5. Quit");
     }
 
     public static void optionsMenu(int choice){
         switch(choice) {
             case 1:
-                contacts.printContacts();
+                Contacts.printContacts();
                 break;
             case 2:
-                contacts.addContact();
+                Contacts.addNewContact();
                 break;
+            case 3:
+                Contacts.changeContact();
+                break;
+            case 4:
+                Contacts.removeContact();
+                break;
+            case 5:
+                break;
+
             default:
                 System.out.println("Invalid option. Try again");
                 break;

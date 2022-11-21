@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class MobilePhone {
 
     Scanner in = new Scanner(System.in);
+    Contacts contacts = new Contacts();
 
     public static void main(String[] args) {
 
         printHello();
-
         printMenu();
         optionsMenu();
     }
@@ -28,9 +28,17 @@ public class MobilePhone {
     }
 
     public static void optionsMenu(int choice){
-        Switch:
-        case 1:
-
+        switch(choice) {
+            case 1:
+                contacts.printContacts();
+                break;
+            case 2:
+                contacts.addContact();
+                break;
+            default:
+                System.out.println("Invalid option. Try again");
+                break;
+        }
     }
 
 }

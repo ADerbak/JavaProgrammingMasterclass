@@ -51,17 +51,23 @@ public class Bank {
     public boolean listCustomers(String branchName, boolean showTransactions){
         Branch branch = findBranch(branchName);
         if (branch != null){
-            System.out.println("Customers for branch " + branch.getName());
+            System.out.println("Customer details for branch " + branch.getName());
             ArrayList<Customer> branchCustomers = branch.getCustomers();
+            int i = 1;
             for (Customer customer:branchCustomers){
-                System.out.println("Customer: "+customer.getName());
+
+                System.out.println("Customer: "+customer.getName() + "[" + i + "]");
                 if (showTransactions){
                     System.out.println("Transactions");
                     ArrayList<Double> transactions = customer.getTransactions();
-                    for (Double transaction:transactions){
-                        System.out.println("Amount" + transaction);
+                    int j = 1;
+                    for (Double transaction:transactions) {
+
+                        System.out.println("[" + j + "]  Amount " + transaction);
+                        j++;
                     }
                 }
+                i++;
             }
             return true;
         }

@@ -21,7 +21,7 @@ public class Demo {
 
         printList(placesToVisit);
 
-        placesToVisit.remove(4);
+        placesToVisit.remove(4); // can also remove by string value!
 
         printList(placesToVisit);
 

@@ -17,6 +17,14 @@ public class Demo {
 
         printList(placesToVisit);
 
+        placesToVisit.add(1, "Alice Springs");
+
+        printList(placesToVisit);
+
+        placesToVisit.remove(4);
+
+        printList(placesToVisit);
+
     }
 
     private static void printList(LinkedList<String> linkedList) {
@@ -26,7 +34,7 @@ public class Demo {
         //        }
         Iterator<String> i = linkedList.iterator();
         while(i.hasNext()){
-            System.out.println("Now Visiting " + i.next());
+            System.out.println("Now Visiting " + i.next()); //Returns the current value, and then moves to the next value
         }
         System.out.println("=======================");
     }
